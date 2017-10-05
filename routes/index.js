@@ -41,6 +41,8 @@ router.get("/status", function (req, res, next) {
     var temp = fs.readFileSync(hb.temp);
     var cputemp = ((temp/1000).toPrecision(3)) + "°C";
     
+    var teamviewerid = "Testje"
+    
     uptime.days = Math.floor(uptime.delta / 86400);
     uptime.delta -= uptime.days * 86400;
     uptime.hours = Math.floor(uptime.delta / 3600) % 24;
