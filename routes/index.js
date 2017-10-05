@@ -7,7 +7,7 @@ var router = express.Router();
 
 var config = require(hb.config);
 
-var teamviewerid = "Testje";
+var teamviewerid = ("Testje");
 
 router.get("/", function (req, res, next) {
     if (req.user) {
