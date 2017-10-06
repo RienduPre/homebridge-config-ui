@@ -25,11 +25,11 @@ $(document).ready(function () {
         window.location.href = "/restart";
     });
 
-    $(".start-tv").click(function () {
+    $(".start-tv-button").click(function () {
         window.location.href = "/start-teamviewer";
     });
     
-    $(".stop-tv").click(function () {
+    $(".stop-tv-button").click(function () {
         window.location.href = "/stop-teamviewer";
     });
     
