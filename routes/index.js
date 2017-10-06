@@ -18,7 +18,7 @@ router.get("/", function (req, res, next) {
     npm.package("homebridge", function (err, server) {
         var exec = require('child_process').execSync;
         var teamviewerid = exec("teamviewer info | grep \"TeamViewer ID:\" | tr -dc '0-9'");
-        var teamviewerstate = exec("systemctl is-active sshd >/dev/null 2>&1 && echo active || echo inactive");
+        var teamviewerstate = exec("systemctl is-active teamviewerd.service >/dev/null 2>&1 && echo active || echo inactive");
         res.render("index", {
             controller: "index",
             title: "Status",
