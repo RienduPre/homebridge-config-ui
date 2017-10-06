@@ -22,7 +22,7 @@ router.get("/", function (req, res, next) {
             controller: "index",
             title: "Status",
             user: req.user,
-            server: server
+            server: server,
             teamviewerid: "123456"
         });
     });
