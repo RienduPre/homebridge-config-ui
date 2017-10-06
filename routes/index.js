@@ -24,7 +24,7 @@ router.get("/", function (req, res, next) {
             title: "Status",
             user: req.user,
             server: server,
-            teamviewerid: teamviewerid
+            teamviewerid: teamviewerid,
             teamviewerstate: teamviewerstate
         });
     });
