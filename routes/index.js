@@ -165,4 +165,21 @@ router.post("/login", function (req, res) {
     })(req, res);
 });
 
+router.get("/start-teamviewer", function (req, res, next) {
+    if (req.user) {
+        next();
+    } else {
+        req.session.referer = "/";
+        res.redirect("/login");
+    }
+}, function (req, res, next) {
+    res.render("progress", {
+        layout: false,
+        message: "Starting Teamviewer...",
+        redirect: "/"
+    });
+
+    require("child_process").exec("sudo systemctl start teamviewerd.service");
+});
+
 module.exports = router;
