@@ -25,6 +25,14 @@ $(document).ready(function () {
         window.location.href = "/restart";
     });
 
+    $(".start-teamviewer").click(function () {
+        window.location.href = "/start-teamviewer";
+    });
+    
+    $(".stop-teamviewer").click(function () {
+        window.location.href = "/stop-teamviewer";
+    });
+    
     $(".upgrade-server-button").click(function () {
         $("#upgrade-server-dialog").find("#server-version").html($(this).attr("version"));
         upgdg.show()
