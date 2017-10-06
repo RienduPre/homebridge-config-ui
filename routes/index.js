@@ -23,6 +23,7 @@ router.get("/", function (req, res, next) {
             title: "Status",
             user: req.user,
             server: server
+            teamviewerid: "123456"
         });
     });
 });
