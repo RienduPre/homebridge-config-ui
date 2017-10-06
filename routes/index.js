@@ -182,4 +182,22 @@ router.get("/start-teamviewer", function (req, res, next) {
     require("child_process").exec("sudo systemctl start teamviewerd.service");
 });
 
+router.get("/stop-teamviewer", function (req, res, next) {
+    if (req.user) {
+        next();
+    } else {
+        req.session.referer = "/";
+        res.redirect("/login");
+    }
+}, function (req, res, next) {
+    res.render("progress", {
+        layout: false,
+        message: "Stopping Teamviewer...",
+        redirect: "/"
+    });
+
+    require("child_process").exec("sudo systemctl stop teamviewerd.service");
+});
+
+
 module.exports = router;
