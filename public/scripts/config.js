@@ -231,4 +231,15 @@ $(document).ready(function () {
     $(".backup-config").click(function () {
         window.location.href = "/config/backup";
     });
+
+    var ragdg = new mdc.dialog.MDCDialog($("#reset-accessories-dialog")[0]);
+
+    ragdg.listen("MDCDialog:accept", function () {
+        window.location.href = "/resetaccessories";
+    });
+
+    $(".reset-accessories-button").click(function () {
+        ragdg.show()
+    });
+
 });

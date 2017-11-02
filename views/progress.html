@@ -32,13 +32,20 @@
             </div>
         </figure>
     </main>
+    <div id="dynamic-check" style="display: none">please wait...</div>
     <script>
         mdc.autoInit()
         mdc.linearProgress.MDCLinearProgress.attachTo($(".mdc-linear-progress")[0]);
 
-        setTimeout(function () {
-            window.location.href = "{{redirect}}";
-        }, 10000);
+        setInterval(function () {
+            $("#dynamic-check").load("/status", function (res, stat) {
+                if (stat == "error") {
+                     //status.html(down_html());               
+                } else {
+                    window.location.href = "{{redirect}}";
+                }
+            });
+        }, 3000);
     </script>
 </body>
 </html>

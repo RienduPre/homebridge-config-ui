@@ -160,28 +160,28 @@
         },
         install: function (package, callback) {
             var me = this;
-            var base = this.getBase();
-            var command = path.join(base, "npm/bin/npm-cli.js");
+            //var base = this.getBase();
+            //var command = path.join(base, "npm/bin/npm-cli.js");
 
-            require("child_process").exec("\"" + command + "\" install -g " + package, function (err, stdout, stderr) {
+            require("child_process").exec("sudo npm install -g " + package, function (err, stdout, stderr) {
                 callback(err, stdout, stderr);
             });
         },
         uninstall: function (package, callback) {
             var me = this;
-            var base = this.getBase();
-            var command = path.join(base, "npm/bin/npm-cli.js");
+            //var base = this.getBase();
+            //var command = path.join(base, "npm/bin/npm-cli.js");
 
-            require("child_process").exec("\"" + command + "\" uninstall -g " + package, function (err, stdout, stderr) {
+            require("child_process").exec("sudo npm uninstall -g " + package, function (err, stdout, stderr) {
                 callback(err, stdout, stderr);
             });
         },
         update: function (package, callback) {
             var me = this;
-            var base = this.getBase();
-            var command = path.join(base, "npm/bin/npm-cli.js");
+            //var base = this.getBase();
+            //var command = path.join(base, "npm/bin/npm-cli.js");
 
-            require("child_process").exec("\"" + command + "\" install -g " + package, function (err, stdout, stderr) {
+            require("child_process").exec("sudo npm install -g " + package, function (err, stdout, stderr) {
                 callback(err, stdout, stderr);
             });
         },

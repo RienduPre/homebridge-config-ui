@@ -21,10 +21,22 @@ $(document).ready(function () {
         window.location.href = "/upgrade";
     });
 
-    $(".restart-server").click(function () {
+    $(".restart-homebridge").click(function () {
         window.location.href = "/restart";
     });
 
+    $(".reboot-server").click(function () {
+        window.location.href = "/reboot";
+    });
+
+    $(".start-tv-button").click(function () {
+        window.location.href = "/start-teamviewer";
+    });
+    
+    $(".stop-tv-button").click(function () {
+        window.location.href = "/stop-teamviewer";
+    });
+    
     $(".upgrade-server-button").click(function () {
         $("#upgrade-server-dialog").find("#server-version").html($(this).attr("version"));
         upgdg.show()

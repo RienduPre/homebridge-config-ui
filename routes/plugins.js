@@ -83,9 +83,14 @@ router.get("/uninstall", function (req, res, next) {
         }
     }
 
-    fs.renameSync(hb.config, hb.config + "." + now.getFullYear() + "-"+ now.getMonth() + "-" + now.getDay() + "-" + ("0" + now.getHours()).slice(-2)   + ":" + 
-    ("0" + now.getMinutes()).slice(-2) + ":" + 
-    ("0" + now.getSeconds()).slice(-2));
+    if (!global.hasAppBackup) {
+      fs.renameSync(hb.config, hb.config + "." + now.getFullYear() + "-"+ (now.getMonth() + 1) + "-" + now.getDate() + "-" + ("0" + now.getHours()).slice(-2)   + ":" + 
+      ("0" + now.getMinutes()).slice(-2) + ":" + 
+      ("0" + now.getSeconds()).slice(-2));
+      global.hasAppBackup = true;
+    } else {
+      fs.unlinkSync(hb.config);
+    }
     fs.appendFileSync(hb.config, JSON.stringify(config, null, 4));
     fs.chownSync(hb.config, userId,groupId);
     
@@ -151,9 +156,14 @@ router.post("/install", function (req, res, next) {
             config.accessories.push(accessory);
         }
 
-    fs.renameSync(hb.config, hb.config + "." + now.getFullYear() + "-"+ now.getMonth() + "-" + now.getDay() + "-" + ("0" + now.getHours()).slice(-2)   + ":" + 
-    ("0" + now.getMinutes()).slice(-2) + ":" + 
-    ("0" + now.getSeconds()).slice(-2));
+    if (!global.hasAppBackup) {
+      fs.renameSync(hb.config, hb.config + "." + now.getFullYear() + "-"+ (now.getMonth() + 1) + "-" + now.getDate() + "-" + ("0" + now.getHours()).slice(-2)   + ":" + 
+      ("0" + now.getMinutes()).slice(-2) + ":" + 
+      ("0" + now.getSeconds()).slice(-2));
+      global.hasAppBackup = true;
+    } else {
+      fs.unlinkSync(hb.config);
+    }
     fs.appendFileSync(hb.config, JSON.stringify(config, null, 4));
     fs.chownSync(hb.config, userId,groupId);
 
